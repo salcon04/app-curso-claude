@@ -8,11 +8,15 @@ namespace app_curso_claude.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["NotificationMessage"] = "Bienvenido. Usa el menú para consultar nuestros datos de contacto y direcciones.";
+            ViewData["NotificationType"] = "info";
             return View();
         }
 
         public IActionResult Privacy()
         {
+            ViewData["NotificationMessage"] = "Revisa cómo tratamos tu información personal.";
+            ViewData["NotificationType"] = "info";
             return View();
         }
 

@@ -1,0 +1,30 @@
+@*
+    Notificacion compartida (alerta Bootstrap descartable).
+    Contrato: el controlador define ViewData["NotificationMessage"] y ViewData["NotificationType"]
+    (success | info | warning | danger; por defecto info). Tras un POST + redirect se usan las
+    mismas claves en TempData. ViewData tiene prioridad sobre TempData.
+*@
+@{
+    var notificationMessage = ViewData["NotificationMessage"] as string;
+    var notificationType = ViewData["NotificationType"] as string;
+
+    if (string.IsNullOrWhiteSpace(notificationMessage))
+    {
+        notificationMessage = TempData["NotificationMessage"] as string;
+        notificationType = TempData["NotificationType"] as string;
+    }
+
+    var allowedTypes = new[] { "success", "info", "warning", "danger" };
+    var alertType = notificationType?.Trim().ToLowerInvariant();
+    if (alertType is null || !allowedTypes.Contains(alertType))
+    {
+        alertType = "info";
+    }
+}
+@if (!string.IsNullOrWhiteSpace(notificationMessage))
+{
+    <div class="alert alert-@alertType alert-dismissible fade show" role="alert">
+        @notificationMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+}
