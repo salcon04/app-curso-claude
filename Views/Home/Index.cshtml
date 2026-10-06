@@ -1,8 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mb-4">
+    <h1 class="display-4">Bienvenido</h1>
+    <p class="lead">Encuentra aquí cómo comunicarte con nosotros y dónde estamos ubicados.</p>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+        <div class="card h-100 home-card">
+            <div class="card-body">
+                <h2 class="card-title h5">Datos de contacto</h2>
+                <p class="card-text">Consulta nuestros teléfonos y correo, o envíanos un mensaje con el formulario de contacto.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a class="btn btn-primary" asp-controller="Contacto" asp-action="Index">Ver datos de contacto</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 home-card">
+            <div class="card-body">
+                <h2 class="card-title h5">Direcciones</h2>
+                <p class="card-text">Revisa la lista de nuestras sedes con su dirección y horario de atención.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a class="btn btn-primary" asp-controller="Direcciones" asp-action="Index">Ver direcciones</a>
+            </div>
+        </div>
+    </div>
 </div>
