@@ -1,0 +1,63 @@
+@model ContactoViewModel
+@{
+    ViewData["Title"] = "Datos de contacto";
+}
+
+<h1 class="mb-4">@ViewData["Title"]</h1>
+
+<div class="row g-4">
+    <div class="col-md-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="h5 card-title">Cómo contactarnos</h2>
+                <dl class="mb-0">
+                    <dt>Teléfono</dt>
+                    <dd><a href="tel:+34910000000">+34 910 000 000</a></dd>
+                    <dt>Correo electrónico</dt>
+                    <dd><a href="mailto:contacto@example.com">contacto@example.com</a></dd>
+                    <dt>Horario de atención</dt>
+                    <dd class="mb-0">
+                        Lunes a viernes: 9:00 – 18:00<br />
+                        Sábados: 10:00 – 14:00<br />
+                        Domingos y festivos: cerrado
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="h5 card-title">Envíanos un mensaje</h2>
+                <form asp-controller="Contacto" asp-action="Index" method="post" novalidate>
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Nombre" class="form-label"></label>
+                        <input asp-for="Nombre" class="form-control" autocomplete="name" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" autocomplete="email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Mensaje" class="form-label"></label>
+                        <textarea asp-for="Mensaje" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="Mensaje" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
