@@ -1,0 +1,23 @@
+@model IEnumerable<DireccionViewModel>
+@{
+    ViewData["Title"] = "Direcciones";
+}
+
+<h1 class="mb-4">Nuestras direcciones</h1>
+
+<div class="row">
+    @foreach (var direccion in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@direccion.Nombre</h5>
+                    <p class="card-text mb-1"><strong>Dirección:</strong> @direccion.Calle</p>
+                    <p class="card-text mb-1"><strong>Ciudad:</strong> @direccion.Ciudad</p>
+                    <p class="card-text mb-1"><strong>Teléfono:</strong> @direccion.Telefono</p>
+                    <p class="card-text"><strong>Horario:</strong> @direccion.Horario</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
